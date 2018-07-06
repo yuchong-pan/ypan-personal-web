@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+    blog:
+        restart: always
+        image: gitlab/gitlab-ce:latest
+        expose:
+            - "80"
+        volumes:
+            - /etc/gitlab/config:/etc/gitlab
+            - /etc/gitlab/logs:/var/log/gitlab
+            - /etc/gitlab/data:/var/opt/gitlab
+
+    nginx:
+        restart: always
+        build: ./nginx
+        ports:
+            - "80:80"
+        links:
+            - blog
