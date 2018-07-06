@@ -7,9 +7,9 @@ services:
         expose:
             - "80"
         volumes:
-            - /etc/gitlab/config:/etc/gitlab
-            - /etc/gitlab/logs:/var/log/gitlab
-            - /etc/gitlab/data:/var/opt/gitlab
+            - ../data/blog/config:/etc/gitlab
+            - ../data/blog/logs:/var/log/gitlab
+            - ../data/blog/data:/var/opt/gitlab
 
     nginx:
         restart: always
